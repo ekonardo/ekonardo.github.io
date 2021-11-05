@@ -51,7 +51,7 @@
     <section class="jumbotron text-center">
       <img src="img/ekonardo.jpg" alt="Eko Nardo" width="200" class="rounded-circle img-thumbnail" />
       <h1 class="display-4">Eko Nardo</h1>
-      <p class="lead">IT Programmer</p>
+      <p class="lead"></p>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
           fill="#ffffff"
@@ -164,52 +164,52 @@
           <div class="row justify-content-center">
             <div class="col-md-3">
               <a href="#">
-              <img src="img/gallery/1.jpg" alt="1" class="img-fluid" gallery-img>
+              <img src="img/gallery/1.jpg" alt="gallery 1" class="img-fluid" gallery-img />
               </a>
             </div>
             <div class="col-md-3">
               <a href="#">
-              <img src="img/gallery/2.jpg" alt="2" class="img-fluid" gallery-img>
+              <img src="img/gallery/2.jpg" alt="gallery 2" class="img-fluid" gallery-img />
               </a>
             </div>
             <div class="col-md-3">
               <a href="#">
-              <img src="img/gallery/4.jpg" alt="3" class="img-fluid" gallery-img>
+              <img src="img/gallery/4.jpg" alt="gallery 3" class="img-fluid" gallery-img />
               </a>
             </div>
             <div class="col-md-3">
               <a href="#">
-              <img src="img/gallery/5.jpg" alt="4" class="img-fluid" gallery-img>
+              <img src="img/gallery/5.jpg" alt="gallery 4" class="img-fluid" gallery-img />
               </a>
             </div>
             <div class="col-md-3">
               <a href="#">
-              <img src="img/gallery/6.jpg" alt="5" class="img-fluid" gallery-img>
+              <img src="img/gallery/6.jpg" alt="gallery 5" class="img-fluid" gallery-img />
               </a>
             </div>
             <div class="col-md-3">
               <a href="#">
-              <img src="img/gallery/7.jpg" alt="6" class="img-fluid" gallery-img>
+              <img src="img/gallery/7.jpg" alt="gallery 6" class="img-fluid" gallery-img />
               </a>
             </div>
             <div class="col-md-3">
               <a href="#">
-              <img src="img/gallery/8.jpg" alt="7" class="img-fluid" gallery-img>
+              <img src="img/gallery/8.jpg" alt="gallery 7" class="img-fluid" gallery-img />
               </a>
             </div>
             <div class="col-md-3">
               <a href="#">
-              <img src="img/gallery/9.jpg" alt="8" class="img-fluid" gallery-img>
+              <img src="img/gallery/9.jpg" alt="gallery 8" class="img-fluid" gallery-img />
               </a>
             </div>
             <div class="col-md-3">
               <a href="#">
-              <img src="img/gallery/10.jpg" alt="9" class="img-fluid" gallery-img>
+              <img src="img/gallery/10.jpg" alt="gallery 9" class="img-fluid" gallery-img />
               </a>
             </div>
             <div class="col-md-3">
               <a href="#">
-              <img src="img/gallery/3.jpg" alt="10" class="img-fluid" gallery-img>
+              <img src="img/gallery/3.jpg" alt="gallery 10" class="img-fluid" gallery-img />
               </a>
             </div>
           </div>
@@ -289,8 +289,13 @@
     </script>
 
      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/TextPlugin.min.js"></script>
      <script>
-       gsap.form('.jumbotron img', {duration: 1, y: -100 opacity: 0 });
+       gsap.registerPlugin(TextPlugin);
+       gsap.to('.lead', {duration: 1.5, delay: 1.5, text: 'IT Programmer'});
+       gsap.from('.jumbotron img', {duration: 1, rotate: 360, opacity: 0 });
+       gsap.from('.navbar', { duration: 1.5, y: '-100%', opacity: 0, ease: 'bounce'});
+       gsap.from('.display-4', { duration: 1, x: -50, opacity: 0, delay: 0.5, ease: 'back'})
      </script>
 
     <script>
