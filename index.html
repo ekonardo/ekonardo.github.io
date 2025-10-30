@@ -4,124 +4,523 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Eko Nardo | Web Developer Portfolio</title>
+    <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Load Poppins Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Load AOS (Animation On Scroll) -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
     <style>
-      body { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
-      .glass { backdrop-filter: blur(10px); background-color: rgba(255,255,255,0.75); }
+      /* Custom styles */
+      body {
+        font-family: "Poppins", sans-serif;
+        scroll-behavior: smooth;
+      }
+      /* Glass effect for Navbar */
+      .glass {
+        backdrop-filter: blur(12px);
+        background-color: rgba(255, 255, 255, 0.8);
+      }
+      /* Active state for link smoothing */
+      .nav-link.active {
+        color: #1d4ed8;
+        font-weight: 600;
+      }
     </style>
   </head>
   <body class="bg-gray-50 text-gray-800">
+    <!-- Navbar FIXED & RESPONSIVE -->
+    <nav class="bg-blue-600 text-white fixed w-full top-0 left-0 z-50 glass shadow-lg">
+      <div
+        class="max-w-6xl mx-auto px-6 py-3 flex justify-between items-center"
+      >
+        <!-- Logo -->
+        <a href="#home" class="text-2xl font-extrabold text-white-700"
+          >My Portfolio</a
+        >
 
-    <!-- Navbar -->
-    <nav class="fixed w-full top-0 left-0 z-50 glass shadow">
-      <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-        <a href="#home" class="text-xl font-bold text-blue-700">Eko Nardo</a>
-        <div class="hidden md:flex space-x-6">
-          <a href="#home" class="hover:text-blue-600">Home</a>
-          <a href="#about" class="hover:text-blue-600">About</a>
-          <a href="#projects" class="hover:text-blue-600">Projects</a>
-          <a href="#contact" class="hover:text-blue-600">Contact</a>
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex space-x-8 text-lg font-medium">
+          <a
+            href="#home"
+            class="nav-link hover:text-blue-600 transition duration-150"
+            >Home</a
+          >
+          <a
+            href="#about"
+            class="nav-link hover:text-blue-600 transition duration-150"
+            >About</a
+          >
+          <a
+            href="#projects"
+            class="nav-link hover:text-blue-600 transition duration-150"
+            >Projects</a
+          >
+          <a
+            href="#training"
+            class="nav-link hover:text-blue-600 transition duration-150">
+            Pelatihan</a>
+          <a
+            href="#contact"
+            class="nav-link hover:text-blue-600 transition duration-150"
+            >Contact</a
+          >
+        </div>
+
+        <!-- Mobile Menu Button (Hamburger) -->
+        <button
+          id="menu-btn"
+          class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition focus:outline-none"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-7 w-7 text-blue-700"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu (Hidden by default, shown when toggled) -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white/90 border-t border-gray-100 py-2"
+      >
+        <div
+          class="flex flex-col space-y-2 px-6 pb-4 text-gray-700 font-medium"
+        >
+          <a
+            href="#home"
+            class="mobile-nav-link p-2 rounded-lg hover:bg-blue-50 transition"
+            >Home</a
+          >
+          <a
+            href="#about"
+            class="mobile-nav-link p-2 rounded-lg hover:bg-blue-50 transition"
+            >About</a
+          >
+          <a
+            href="#projects"
+            class="mobile-nav-link p-2 rounded-lg hover:bg-blue-50 transition"
+            >Projects</a
+          >
+          <a 
+            href="#training"
+            class="mobile-nav-link p-2 rounded-lg hover:bg-blue-50 transition">
+            Pelatihan</a>
+          <a
+            href="#contact"
+            class="mobile-nav-link p-2 rounded-lg hover:bg-blue-50 transition"
+            >Contact</a
+          >
         </div>
       </div>
     </nav>
 
     <!-- Hero -->
-    <section id="home" class="pt-32 pb-20 bg-gradient-to-b from-blue-50 to-white text-center">
-      <img src="img/ekonardo.jpg" alt="Eko Nardo" class="w-40 h-40 rounded-full mx-auto mb-6 shadow-lg" data-aos="zoom-in" />
-      <h1 class="text-4xl font-bold mb-2" data-aos="fade-up">Eko Nardo</h1>
-      <p class="text-blue-600 font-medium text-lg" data-aos="fade-up" data-aos-delay="100">ASN - Penata Kelola Sistem dan Teknologi Informasi</p>
+    <section
+      id="home"
+      class="pt-32 pb-24 bg-gradient-to-br from-blue-50 to-white text-center"
+    >
+      <!-- Profile Image (Placeholder for reliability) -->
+      <img
+        src="img/ekonardo.jpg"
+        alt="Eko Nardo"
+        class="w-40 h-40 rounded-full mx-auto mb-6 shadow-xl ring-4 ring-blue-200 object-cover"
+        data-aos="zoom-in"
+      />
+      <h1 class="text-4xl font-extrabold mb-2 text-gray-900" data-aos="fade-up">
+        Eko Nardo, S.Kom
+      </h1>
+      <p
+        class="text-blue-700 font-semibold text-xl"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        Penata Kelola Sistem dan Teknologi Informasi
+      </p>
+      <p
+        class="text-gray-600 font-semibold text-sm"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        Dinas Koperasi dan UKM Kabupaten Penukal Abab Lematang Ilir
+      </p>
     </section>
 
     <!-- About -->
-     <section id="about" class="py-20 bg-gray-50">
-  <div class="max-w-5xl mx-auto px-6 text-center">
-    <h2 class="text-3xl font-bold text-gray-800 mb-6">Tentang Saya</h2>
-    <p class="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
-      Halo! Saya <span class="font-semibold text-gray-800">Eko Nardo</span>, seorang 
-      <span class="text-blue-600 font-semibold">Aparatur Sipil Negara (ASN)</span> yang bertugas sebagai 
-      <span class="font-semibold text-blue-600">Penata Kelola Sistem dan Teknologi Informasi</span> 
-      di <span class="font-medium text-gray-800">Dinas Koperasi dan UKM</span>.  
-      <br><br>
-      Saya berfokus pada pengembangan dan pengelolaan sistem informasi berbasis web untuk mendukung digitalisasi layanan publik dan pemberdayaan pelaku UMKM. 
-      Berpengalaman menggunakan <span class="text-blue-600 font-semibold">CodeIgniter 4</span>, 
-      serta kini aktif mengembangkan solusi modern dengan <span class="text-blue-600 font-semibold">Laravel, Livewire,</span> dan 
-      <span class="text-blue-600 font-semibold">Tailwind CSS</span>.  
-      <br><br>
-      Saya memiliki semangat untuk menciptakan aplikasi yang elegan, efisien, dan berorientasi pada kemudahan pengguna. 
-      Kombinasi antara latar belakang birokrasi dan kemampuan teknis membuat saya berkomitmen menghadirkan inovasi digital yang berdampak nyata bagi masyarakat.
-    </p>
-  </div>
-</section>
+    <section id="about" class="py-20 bg-white">
+      <div class="max-w-5xl mx-auto px-6 text-center">
+        <h2 class="text-4xl font-bold text-gray-800 mb-10" data-aos="fade-down">
+          About Me
+        </h2>
+        <div
+          class="bg-gray-50 p-8 rounded-2xl shadow-lg border border-gray-100"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <p class="text-lg text-gray-600 leading-relaxed text-left">
+            Halo! Saya <span class="font-bold text-gray-900">Eko Nardo</span>,
+            seorang
+            <span class="text-blue-700 font-bold"
+              >Aparatur Sipil Negara (ASN)</span
+            >
+            yang bertugas sebagai
+            <span class="font-bold text-blue-700"
+              >Penata Kelola Sistem dan Teknologi Informasi</span
+            >
+            di
+            <span class="font-semibold text-gray-900"
+              >Dinas Koperasi dan UKM</span
+            > Kabupaten Penukal Abab Lematang Ilir. <br /><br />
+            Saya berfokus pada pengembangan dan pengelolaan sistem informasi
+            berbasis web untuk mendukung digitalisasi layanan publik dan
+            pemberdayaan pelaku UMKM. Berpengalaman menggunakan
+            <span class="text-blue-700 font-bold">CodeIgniter 4</span>, serta
+            kini aktif mengembangkan solusi modern dengan
+            <span class="text-blue-700 font-bold">Laravel</span>.
+            <br /><br />
+            Saya memiliki semangat untuk menciptakan aplikasi yang elegan,
+            efisien, dan berorientasi pada kemudahan pengguna. Kombinasi antara
+            latar belakang birokrasi dan kemampuan teknis membuat saya
+            berkomitmen menghadirkan inovasi digital yang berdampak nyata bagi
+            masyarakat.
+          </p>
+        </div>
+      </div>
+    </section>
 
     <!-- Projects -->
     <section id="projects" class="py-20 bg-blue-50">
-      <div class="max-w-6xl mx-auto text-center px-4">
-        <h2 class="text-3xl font-bold mb-10 text-gray-800" data-aos="fade-down">My Projects</h2>
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition" data-aos="zoom-in">
-            <img src="img/projects/datanet.png" alt="DATANET" class="w-full h-48 object-cover">
-            <div class="p-4">
-              <p class="font-semibold text-gray-700">DATANET</p>
-              <p class="text-sm text-gray-500">PT. Djaya Sampoerna Net</p>
+      <div class="max-w-6xl mx-auto text-center px-6">
+        <h2 class="text-4xl font-bold mb-12 text-gray-800" data-aos="fade-down">
+          My Projects
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Project 1 -->
+          <div
+            class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300 border-t-4 border-blue-600"
+            data-aos="zoom-in"
+          >
+            <!-- Image Placeholder for DATANET -->
+            <img
+              src="img/projects/webdinkop.png"
+              alt="webdinkop"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <p class="text-xl font-bold text-gray-800 mb-1">Web Dinkop</p>
+              <p class="text-sm text-gray-500">Dinas Kopearsi dan UKM Kabupaten Penukal Abab Lematang Ilir - 2025</p>
             </div>
           </div>
-          <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition" data-aos="zoom-in" data-aos-delay="100">
-            <img src="img/projects/e-ulp.png" alt="E-ULP" class="w-full h-48 object-cover">
-            <div class="p-4">
-              <p class="font-semibold text-gray-700">E-ULP</p>
-              <p class="text-sm text-gray-500">Sekretariat Daerah Kota Pagaralam</p>
+
+          <!-- Project 2 -->
+          <div
+            class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300 border-t-4 border-blue-600"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <img
+              src="img/projects/sipakam.png"
+              alt="sipakam"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <p class="text-xl font-bold text-gray-800 mb-1">SIPAKAM</p>
+              <p class="text-sm text-gray-500">
+                Dinas Koperasi dan UKM Kabupaten Penukal Abab Lematang Ilir - 2025
+              </p>
             </div>
           </div>
-          <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition" data-aos="zoom-in" data-aos-delay="200">
-            <img src="img/projects/sidiso.png" alt="SIDISO" class="w-full h-48 object-cover">
-            <div class="p-4">
-              <p class="font-semibold text-gray-700">SIDISO</p>
-              <p class="text-sm text-gray-500">Dinas Sosial Kota Palembang</p>
+
+          <!-- Project 3 -->
+          <div
+            class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300 border-t-4 border-blue-600"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
+            <img
+              src="img/projects/e-sppd.png"
+              alt="SIDISO"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <p class="text-xl font-bold text-gray-800 mb-1">E-SPPD Dinsos</p>
+              <p class="text-sm text-gray-500">Dinas Sosial Kota Palembang - 2024</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+     <!-- Training Section (Pelatihan) -->
+    <section id="training" class="py-20 bg-white">
+      <div class="max-w-6xl mx-auto text-center px-6">
+        <h2 class="text-4xl font-bold mb-12 text-gray-800" data-aos="fade-down">
+          Pelatihan & Sertifikasi
+        </h2>
+        <p class="text-lg text-gray-600 mb-10 max-w-4xl mx-auto" data-aos="fade-up">
+          Komitmen saya untuk terus belajar dan beradaptasi dengan teknologi terbaru melalui berbagai pelatihan dan sertifikasi profesional.
+        </p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Training 1: Laravel -->
+          <div 
+            class="bg-gray-50 rounded-xl shadow-xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300 border-l-4 border-amber-500" 
+            data-aos="zoom-in">
+            <!-- Image Placeholder for Training -->
+            <img 
+              src="img/sertifikat/lan1.png" 
+              alt="Pelatihan Laravel" 
+              class="w-full h-48 object-cover">
+            <div class="p-6 text-left">
+              <span class="inline-block bg-amber-100 text-amber-800 text-xs font-semibold px-3 py-1 rounded-full mb-2">Big Data</span>
+              <p class="text-sm font-bold text-gray-800 mb-1">Merumuskan Kebijakan Publik Menggunakan Big Data Analysis (4 JP)</p>
+              <p class="text-sm text-gray-500">Lembaga Administrasi Negara - 2025</p>
+            </div>
+          </div>
+          
+          <div 
+            class="bg-gray-50 rounded-xl shadow-xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300 border-l-4 border-green-500" 
+            data-aos="zoom-in" 
+            data-aos-delay="100">
+            <!-- Image Placeholder for Training -->
+            <img 
+              src="img/sertifikat/lan2.png" 
+              alt="Sertifikasi Jaringan" 
+              class="w-full h-48 object-cover">
+            <div class="p-6 text-left">
+              <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full mb-2">Digital Skill</span>
+              <p class="text-sm font-bold text-gray-800 mb-1">Strategi Penggunaan Kecerdasan Buatan Dalam Pengembangan Sistem
+Teknologi Di Pemerintahan (1 JP)</p>
+              <p class="text-sm text-gray-500">Lembaga Administrasi Negara - 2025</p>
+            </div>
+          </div>
+          
+          <div 
+            class="bg-gray-50 rounded-xl shadow-xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300 border-l-4 border-red-500" 
+            data-aos="zoom-in" 
+            data-aos-delay="200">
+            <!-- Image Placeholder for Training -->
+            <img 
+              src="img/sertifikat/lan3.png" 
+              alt="Pelatihan UI/UX" 
+              class="w-full h-48 object-cover">
+            <div class="p-6 text-left">
+              <span class="inline-block bg-red-100 text-red-800 text-xs font-semibold px-3 py-1 rounded-full mb-2">Digital Skill</span>
+              <p class="text-sm font-bold text-gray-800 mb-1">Strategi Dalam Sistem Tata Kelola Data (1 JP)</p>
+              <p class="text-sm text-gray-500">Lembaga Administrasi Negara - 2025</p>
+            </div>
+          </div>
+
+          <div 
+            class="bg-gray-50 rounded-xl shadow-xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300 border-l-4 border-red-500" 
+            data-aos="zoom-in" 
+            data-aos-delay="200">
+            <!-- Image Placeholder for Training -->
+            <img 
+              src="img/sertifikat/lan4.png" 
+              alt="Pelatihan UI/UX" 
+              class="w-full h-48 object-cover">
+            <div class="p-6 text-left">
+              <span class="inline-block bg-red-100 text-red-800 text-xs font-semibold px-3 py-1 rounded-full mb-2">Digital Skill</span>
+              <p class="text-sm font-bold text-gray-800 mb-1">Mengaktifkan Transformasi Digital Di Sektor Pemerintahan (4 JP)</p>
+              <p class="text-sm text-gray-500">Lembaga Administrasi Negara - 2025</p>
+            </div>
+          </div>
+
+          <div 
+            class="bg-gray-50 rounded-xl shadow-xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300 border-l-4 border-green-500" 
+            data-aos="zoom-in" 
+            data-aos-delay="100">
+            <!-- Image Placeholder for Training -->
+            <img 
+              src="img/sertifikat/lan5.png" 
+              alt="Sertifikasi Jaringan" 
+              class="w-full h-48 object-cover">
+            <div class="p-6 text-left">
+              <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full mb-2">Digital Skill</span>
+              <p class="text-sm font-bold text-gray-800 mb-1">Smart Jabatan Fungsional (9 JP)</p>
+              <p class="text-sm text-gray-500">Lembaga Administrasi Negara - 2025</p>
+            </div>
+          </div>
+
+          <div 
+            class="bg-gray-50 rounded-xl shadow-xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300 border-l-4 border-amber-500" 
+            data-aos="zoom-in">
+            <img 
+              src="img/sertifikat/golang.jpg" 
+              alt="Pelatihan Laravel" 
+              class="w-full h-48 object-cover">
+            <div class="p-6 text-left">
+              <span class="inline-block bg-amber-100 text-amber-800 text-xs font-semibold px-3 py-1 rounded-full mb-2">Professional Academy</span>
+              <p class="text-sm font-bold text-gray-800 mb-1">GOLANG (80 JP)</p>
+              <p class="text-sm text-gray-500">Digital Talent Scholarship - 2022</p>
+            </div>
+          </div>
+
+                    <div 
+            class="bg-gray-50 rounded-xl shadow-xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300 border-l-4 border-amber-500" 
+            data-aos="zoom-in">
+            <img 
+              src="img/sertifikat/dataanalis.jpg" 
+              alt="Pelatihan Laravel" 
+              class="w-full h-48 object-cover">
+            <div class="p-6 text-left">
+              <span class="inline-block bg-amber-100 text-amber-800 text-xs font-semibold px-3 py-1 rounded-full mb-2">Professional Academy</span>
+              <p class="text-sm font-bold text-gray-800 mb-1">Data Analyst (88 JP)</p>
+              <p class="text-sm text-gray-500">Digital Talent Scholarship - 2021</p>
+            </div>
+          </div>
+         
+        </div>
+      </div>
+      
+    </section>
+    <!-- END Training Section -->
     <!-- Contact -->
     <section id="contact" class="py-20 bg-white">
-      <div class="max-w-4xl mx-auto text-center px-4">
-        <h2 class="text-3xl font-bold mb-10 text-gray-800" data-aos="fade-down">Contact Me</h2>
-        <form name="portfolio-contact-form" class="max-w-md mx-auto bg-blue-50 p-6 rounded-2xl shadow" data-aos="fade-up">
-          <div class="mb-4 text-left">
-            <label for="name" class="block mb-1 text-gray-600 font-medium">Nama Lengkap</label>
-            <input type="text" id="name" name="nama" required class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+      <div class="max-w-4xl mx-auto text-center px-6">
+        <h2 class="text-4xl font-bold mb-12 text-gray-800" data-aos="fade-down">
+          Hubungi Saya
+        </h2>
+        <form
+          name="portfolio-contact-form"
+          class="max-w-md mx-auto bg-blue-50 p-8 rounded-2xl shadow-xl border border-blue-100"
+          data-aos="fade-up"
+        >
+          <div class="mb-5 text-left">
+            <label for="name" class="block mb-1 text-gray-700 font-semibold"
+              >Nama Lengkap</label
+            >
+            <input
+              type="text"
+              id="name"
+              name="nama"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition duration-150"
+            />
           </div>
-          <div class="mb-4 text-left">
-            <label for="email" class="block mb-1 text-gray-600 font-medium">Email</label>
-            <input type="email" id="email" name="email" required class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+          <div class="mb-5 text-left">
+            <label for="email" class="block mb-1 text-gray-700 font-semibold"
+              >Email</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition duration-150"
+            />
           </div>
-          <div class="mb-4 text-left">
-            <label for="pesan" class="block mb-1 text-gray-600 font-medium">Pesan</label>
-            <textarea id="pesan" name="pesan" rows="4" required class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
+          <div class="mb-6 text-left">
+            <label for="pesan" class="block mb-1 text-gray-700 font-semibold"
+              >Pesan</label
+            >
+            <textarea
+              id="pesan"
+              name="pesan"
+              rows="5"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition duration-150"
+            ></textarea>
           </div>
-          <button type="submit" class="bg-blue-600 text-white font-semibold px-6 py-2 rounded-md hover:bg-blue-700 transition">Kirim Pesan</button>
+          <button
+            type="submit"
+            class="w-full bg-blue-700 text-white font-bold text-lg px-8 py-3 rounded-xl hover:bg-blue-800 transition duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+          >
+            Kirim Pesan
+          </button>
         </form>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-blue-700 text-white text-center py-6">
-      <p>Created with ❤️ by <a href="https://www.instagram.com/ekonardo/" target="_blank" class="font-semibold hover:underline">Eko Nardo</a></p>
+    <footer class="bg-blue-800 text-white text-center py-8">
+      <p class="text-lg">
+        Dibuat dengan ❤️ oleh
+        <a
+          href="https://www.instagram.com/ekonardo/"
+          target="_blank"
+          class="font-extrabold hover:text-blue-200 transition underline underline-offset-4"
+          >Eko Nardo</a
+        >
+      </p>
+      <div class="mt-2 text-sm text-blue-200">
+        &copy; 2025. All rights reserved.
+      </div>
     </footer>
 
+    <!-- GSAP for smoother loading animation (already included) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <!-- Custom JavaScript for Mobile Menu & Scroll Logic -->
     <script>
       AOS.init({ duration: 1000, once: true });
-      gsap.from("nav", { y: -60, opacity: 0, duration: 1, ease: "power3.out" });
-      gsap.from(".w-40", { opacity: 0, scale: 0.5, duration: 1, delay: 0.5 });
-      gsap.from(".text-4xl", { opacity: 0, y: 20, duration: 1, delay: 0.7 });
+
+      // GSAP Initial Animations (Slightly modified)
+      gsap.from("nav", {
+        y: -100,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+      });
+
+      // 1. Mobile Menu Toggle Logic
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const mobileLinks = document.querySelectorAll(".mobile-nav-link");
+
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Close mobile menu when a link is clicked
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+
+      // 2. Active Navbar Link Logic (Highlighting current section)
+      const sections = document.querySelectorAll("section");
+      const navLinks = document.querySelectorAll(".nav-link");
+
+      window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop - 90; // Offset for fixed navbar height
+          const sectionHeight = section.clientHeight;
+          if (
+            pageYOffset >= sectionTop &&
+            pageYOffset < sectionTop + sectionHeight
+          ) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href").includes(current)) {
+            link.classList.add("active");
+          }
+        });
+      });
     </script>
   </body>
 </html>
-
